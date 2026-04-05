@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hole in One | Planejamento patrimonial com estratégia</title>
+  <meta name="description" content="Decisões patrimoniais desenhadas com precisão, profundidade e visão de longo prazo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ════════════════════════════════════
+       CURSOR PERSONALIZADO
+  ════════════════════════════════════ -->
+  <div class="cursor" id="custom-cursor"></div>
+
+  <!-- ════════════════════════════════════
+       LOADER PREMIUM
+  ════════════════════════════════════ -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-bg"></div>
+    <div class="loader-content">
+      <div class="loader-logo-wrap">
+        <img src="WhatsApp_Image_2026-03-19_at_08.33.29-removebg-preview.png" alt="" class="loader-logo" />
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <span class="loader-label">Hole in One</span>
+    </div>
+    <div class="loader-curtain loader-curtain-top"></div>
+    <div class="loader-curtain loader-curtain-bottom"></div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       BOTÃO WHATSAPP FLUTUANTE
+  ════════════════════════════════════ -->
+  <a class="whatsapp-float" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <div class="site-shell">
+
+    <!-- ════════════════════════════════════
+         HEADER
+    ════════════════════════════════════ -->
+    <header class="header" id="header">
+      <div class="header-inner">
+        <a href="#top" class="brand" aria-label="Hole in One">
+          <img src="WhatsApp_Image_2026-03-19_at_08.33.29-removebg-preview.png" alt="Hole in One" class="brand-logo" />
+        </a>
+
+        <!-- Nav desktop -->
+        <nav class="nav" aria-label="Principal">
+          <ul class="nav-list">
+            <li><a href="#posicionamento">Nossa História</a></li>
+            <li class="nav-dropdown" id="nav-solucoes-dropdown">
+              <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                Soluções <span class="nav-arrow" aria-hidden="true">&#9662;</span>
+              </button>
+              <ul class="nav-dropdown-menu" role="menu">
+                <li role="none"><a href="#consorcio" role="menuitem">Consórcio</a></li>
+                <li role="none"><a href="#seguros" role="menuitem">Seguros</a></li>
+                <li role="none"><a href="#imobiliario" role="menuitem">Imobiliário</a></li>
+              </ul>
+            </li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <!-- Hambúrguer mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ════════════════════════════════════
+         MENU MOBILE OVERLAY
+    ════════════════════════════════════ -->
+    <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
+      <nav aria-label="Menu mobile">
+        <ul class="mobile-nav-list">
+          <li><a href="#posicionamento">Nossa História</a></li>
+          <li class="mobile-group">
+            <span class="mobile-group-label">Soluções</span>
+            <ul>
+              <li><a href="#consorcio">Consórcio</a></li>
+              <li><a href="#seguros">Seguros</a></li>
+              <li><a href="#imobiliario">Imobiliário</a></li>
+            </ul>
+          </li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="mobile-cta">
+          <a href="https://wa.me/5500000000000" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+
+    <main id="top">
+
+      <!-- ════════════════════════════════════
+           HERO — Slideshow Crossfade
+      ════════════════════════════════════ -->
+      <section class="hero" aria-labelledby="hero-title">
+
+        <!-- Slideshow de fundo: 3 slides com crossfade -->
+        <div class="hero-slideshow" aria-hidden="true">
+          <div class="hero-slide slide-1 active"></div>
+          <div class="hero-slide slide-2"></div>
+          <div class="hero-slide slide-3"></div>
+        </div>
+
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-grain"   aria-hidden="true"></div>
+
+        <!-- Conteúdo centralizado -->
+        <div class="hero-content page-fade-in">
+          <span class="eyebrow">Planejamento acima da impulsividade</span>
+          <h1 id="hero-title">Decisões patrimoniais desenhadas com<em> precisão</em> e profundidade.</h1>
+          <p class="hero-text">
+            A Hole in One posiciona consórcios, proteção patrimonial e soluções estratégicas
+            como instrumentos de construção consciente.
+          </p>
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary magnetic">Falar com a equipe</a>
+            <a href="#solucoes" class="btn btn-ghost">Conhecer soluções</a>
+          </div>
+          <div class="hero-scroll">
+            <span>Explorar</span>
+            <div class="hero-scroll-line"></div>
+          </div>
+        </div>
+
+        <!-- Indicadores do slideshow -->
+        <div class="slideshow-dots" aria-hidden="true">
+          <button class="dot active" data-slide="0"></button>
+          <button class="dot" data-slide="1"></button>
+          <button class="dot" data-slide="2"></button>
+        </div>
+
+        <!-- Badge flutuante -->
+        <div class="hero-badge">
+          <div class="hero-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" />
+              <path d="M9.5 12.5l1.8 1.8 3.7-4.1" />
+            </svg>
+          </div>
+          <div class="hero-badge-text">
+            <span class="hero-badge-label">Especialidade</span>
+            <span class="hero-badge-value">Estratégia Patrimonial</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ════════════════════════════════════
+           NÚMEROS / ESTATÍSTICAS
+      ════════════════════════════════════ -->
+      <section class="section stats-section">
+        <div class="container">
+          <div class="stats-grid reveal">
+            <div class="stat-item">
+              <span class="stat-number">+500</span>
+              <span class="stat-label">Famílias atendidas</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-number">12</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-number">R$200M+</span>
+              <span class="stat-label">Em patrimônio gerenciado</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Índice de satisfação</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+           NOSSA HISTÓRIA
+      ════════════════════════════════════ -->
+      <section id="posicionamento" class="section institutional section-image" aria-labelledby="historia-title">
+        <div class="section-banner" style="background-image: url('dsn.png');" aria-hidden="true"></div>
+        <div class="section-overlay historia-overlay" aria-hidden="true"></div>
+        <div class="container">
+          <div class="historia-layout reveal">
+            <div class="historia-img-wrap">
+              <div class="historia-img-inner">
+                <img src="bobpai.jpeg" alt="Foto do integrante" />
+                <div class="historia-img-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                  </svg>
+                  <span>Adicionar imagem</span>
+                </div>
+              </div>
+              <div class="historia-img-accent" aria-hidden="true"></div>
+            </div>
+
+            <div class="historia-text">
+              <span class="section-tag">Nossa História</span>
+              <h2 id="historia-title">Uma história construída com propósito</h2>
+              <div class="historia-divider" aria-hidden="true"></div>
+              <p>A Hole in One nasceu da convicção de que patrimônio não se constrói por acaso — ele é o resultado de decisões conscientes, planejamento criterioso e uma visão de futuro que transcende o imediato.</p>
+              <p>Ao longo da nossa trajetória, acompanhamos famílias e investidores a transformar sonhos em patrimônio real, utilizando consórcios, soluções imobiliárias e proteção patrimonial como instrumentos de construção consciente.</p>
+              <p>Mais do que uma marca, somos um legado em construção. Acreditamos que a riqueza verdadeira se mede pela segurança que ela proporciona às gerações futuras.</p>
+
+              <div class="historia-pillars">
+                <div class="pillar">
+                  <span class="pillar-num">01</span>
+                  <span class="pillar-text">Clareza estratégica</span>
+                </div>
+                <div class="pillar">
+                  <span class="pillar-num">02</span>
+                  <span class="pillar-text">Presença humana</span>
+                </div>
+                <div class="pillar">
+                  <span class="pillar-num">03</span>
+                  <span class="pillar-text">Visão de longo prazo</span>
+                </div>
+              </div>
+
+              <a href="#contato" class="btn btn-secondary">Conheça nossa equipe</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+           SOLUÇÕES
+      ════════════════════════════════════ -->
+      <section id="solucoes" class="section services-section section-image" aria-labelledby="solucoes-title">
+        <div class="section-banner services-banner" aria-hidden="true"></div>
+        <div class="section-overlay section-overlay-soft" aria-hidden="true"></div>
+        <div class="section-grain" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="section-intro reveal">
+            <span class="section-tag">Soluções</span>
+            <h2 id="solucoes-title">Instrumentos de construção<br><em>patrimonial consciente</em></h2>
+            <p class="section-intro-text">Cada solução é cuidadosamente estruturada para se alinhar ao seu momento de vida, seus objetivos e seu perfil de risco.</p>
+          </div>
+
+          <div class="cards-grid">
+
+            <article class="service-card reveal cascade-1" id="consorcio">
+              <div class="card-bg" style="background-image: url('dsn.png'); background-position: center top;"></div>
+              <div class="card-content">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19h16" /><path d="M6 19V9l6-4 6 4v10" /><path d="M9 19v-5h6v5" />
+                  </svg>
+                </div>
+                <h3>Consórcios Estratégicos</h3>
+                <p>Estruturação de consórcios como ferramenta de planejamento e aquisição inteligente. Trabalhamos cada modalidade com profundidade técnica para maximizar o resultado patrimonial ao longo do tempo.</p>
+                <ul class="card-benefits">
+                  <li>Sem juros, com planejamento</li>
+                  <li>Cartas de crédito flexíveis</li>
+                  <li>Assessoria em lances estratégicos</li>
+                </ul>
+              </div>
+              <a href="#contato" class="card-cta">Saiba mais <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="service-card reveal cascade-2" id="imobiliario">
+              <div class="card-bg" style="background-image: url('dsn.png'); background-position: center center;"></div>
+              <div class="card-content">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18" /><path d="M6 18V9" /><path d="M12 18V3" /><path d="M18 18v-6" />
+                  </svg>
+                </div>
+                <h3>Estratégias Imobiliárias</h3>
+                <p>Direcionamento para construção ou reorganização de patrimônio imobiliário. Analisamos cenários, identificamos oportunidades e orientamos decisões com base em critérios sólidos de valorização.</p>
+                <ul class="card-benefits">
+                  <li>Análise de mercado personalizada</li>
+                  <li>Curadoria de oportunidades</li>
+                  <li>Gestão do portfólio imobiliário</li>
+                </ul>
+              </div>
+              <a href="#contato" class="card-cta">Saiba mais <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="service-card reveal cascade-3" id="seguros">
+              <div class="card-bg" style="background-image: url('dsn.png'); background-position: center bottom;"></div>
+              <div class="card-content">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" /><path d="M9.5 12.5l1.8 1.8 3.7-4.1" />
+                  </svg>
+                </div>
+                <h3>Proteção Patrimonial</h3>
+                <p>Soluções de proteção integradas para preservar patrimônio e tranquilidade. Porque construir riqueza exige também blindá-la com inteligência e estratégias alinhadas ao perfil de cada família.</p>
+                <ul class="card-benefits">
+                  <li>Seguros de vida e patrimônio</li>
+                  <li>Planejamento sucessório</li>
+                  <li>Blindagem jurídica patrimonial</li>
+                </ul>
+              </div>
+              <a href="#contato" class="card-cta">Saiba mais <span aria-hidden="true">→</span></a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+           DIFERENCIAIS
+      ════════════════════════════════════ -->
+      <section id="diferenciais" class="section differentials section-image" aria-labelledby="diferenciais-title">
+        <div class="section-banner differentials-banner" aria-hidden="true"></div>
+        <div class="diferenciais-overlay" aria-hidden="true"></div>
+        <div class="section-grain" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="section-intro reveal" style="text-align:center; max-width:680px; margin:0 auto 64px;">
+            <span class="section-tag">Diferenciais</span>
+            <h2 id="diferenciais-title">Uma experiência premium baseada em<em> clareza</em> e presença humana.</h2>
+          </div>
+
+          <div class="differentials-grid">
+            <article class="diff-card reveal cascade-1">
+              <div class="diff-card-num">01</div>
+              <h3>Atendimento relacional</h3>
+              <p>Relação próxima, sem robotização, com acompanhamento consultivo individualizado em cada etapa da jornada patrimonial.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+            <article class="diff-card reveal cascade-2">
+              <div class="diff-card-num">02</div>
+              <h3>Decisão inteligente</h3>
+              <p>Menor impulsividade, mais consciência e leitura de longo prazo. Orientamos com dados, mercado e visão estratégica.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+            <article class="diff-card reveal cascade-3">
+              <div class="diff-card-num">03</div>
+              <h3>Base Técnica Sólida</h3>
+              <p>Carteiras saudáveis e previsibilidade em cada recomendação. Metodologia proprietária com mais de uma década de refinamento.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+            <article class="diff-card reveal cascade-1">
+              <div class="diff-card-num">04</div>
+              <h3>Planejamento Contínuo</h3>
+              <p>Revisões periódicas para garantir que o plano evolui junto com a sua vida. Nenhum cliente é deixado para trás.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+            <article class="diff-card reveal cascade-2">
+              <div class="diff-card-num">05</div>
+              <h3>Transparência Total</h3>
+              <p>Relatórios claros, linguagem acessível e honestidade em cada interação. Você sempre sabe onde está seu patrimônio.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+            <article class="diff-card reveal cascade-3">
+              <div class="diff-card-num">06</div>
+              <h3>Legado Familiar</h3>
+              <p>Não planejamos apenas para hoje. Estruturamos seu patrimônio para que ele proteja e prospere por gerações.</p>
+              <div class="diff-card-line" aria-hidden="true"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+           DEPOIMENTOS
+      ════════════════════════════════════ -->
+      <section id="depoimentos" class="section authority" aria-labelledby="depoimentos-title">
+        <div class="container">
+          <div class="section-intro reveal" style="text-align:center; max-width:600px; margin:0 auto 64px;">
+            <span class="section-tag">Depoimentos</span>
+            <h2 id="depoimentos-title">O que dizem nossos<em> clientes</em></h2>
+          </div>
+
+          <div class="testimonial-grid reveal">
+            <div class="testimonial-card cascade-1">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <p class="testimonial-text">Nunca imaginei que um consórcio pudesse ser tão estratégico. A equipe da Hole in One me guiou em cada etapa, com clareza e sem pressão. Hoje tenho meu imóvel e um planejamento que realmente faz sentido para o futuro da minha família.</p>
+              <div class="testimonial-footer">
+                <div class="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+                <div class="testimonial-author">
+                  <strong>Camila Resende</strong>
+                  <span>Empreendedora, São Paulo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card cascade-2">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <p class="testimonial-text">O atendimento humanizado foi o que me conquistou. Sinto que tenho um consultor de confiança, não apenas um vendedor. A Hole in One entende que patrimônio é sobre legado, não apenas sobre números.</p>
+              <div class="testimonial-footer">
+                <div class="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+                <div class="testimonial-author">
+                  <strong>Rodrigo Menezes</strong>
+                  <span>Médico, Belo Horizonte</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card cascade-3">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <p class="testimonial-text">Após anos tomando decisões financeiras sem direção, encontrei na Hole in One o equilíbrio entre proteção e crescimento patrimonial. A abordagem estratégica deles mudou completamente minha visão sobre planejamento.</p>
+              <div class="testimonial-footer">
+                <div class="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+                <div class="testimonial-author">
+                  <strong>Ana Beatriz Loureiro</strong>
+                  <span>Arquiteta, Rio de Janeiro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════
+           CONTATO / CTA
+      ════════════════════════════════════ -->
+      <section id="contato" class="section cta" aria-labelledby="contato-title">
+        <div class="container">
+          <div class="cta-panel reveal">
+            <div class="cta-copy">
+              <span class="section-tag">Contato</span>
+              <h2 id="contato-title">Converse com uma<em> marca séria.</em></h2>
+              <p>Construção patrimonial com atendimento personalizado. Sem jargões, sem promessas vazias.</p>
+            </div>
+            <div class="cta-actions">
+              <a class="btn btn-whatsapp magnetic" href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true" style="flex-shrink:0;">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Falar no WhatsApp
+              </a>
+              <a class="cta-link" href="mailto:contato@holeinone.com.br">contato@holeinone.com.br</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <img src="WhatsApp_Image_2026-03-19_at_08.33.29-removebg-preview.png" alt="Hole in One" class="brand-logo" />
+          <p class="footer-tagline">Patrimônio construído com propósito.</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="#posicionamento">Nossa História</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <p class="footer-copy">© 2026 Hole in One. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+  /* ══════════════════════════════════════════════════════
+     LOADER — DOMContentLoaded robusto
+  ══════════════════════════════════════════════════════ */
+  (function () {
+    var loader  = document.getElementById('loader');
+    var body    = document.body;
+    var started = Date.now();
+
+    function dismissLoader() {
+      var elapsed = Date.now() - started;
+      var delay   = Math.max(0, 1800 - elapsed);
+      setTimeout(function () {
+        loader.classList.add('loader-done');
+        setTimeout(function () {
+          loader.style.display = 'none';
+          body.classList.remove('is-loading');
+          /* Dispara fade-in do hero após loader */
+          document.querySelectorAll('.page-fade-in').forEach(function(el) {
+            el.classList.add('is-visible');
+          });
+          triggerReveal();
+          initSlideshow();
+        }, 900);
+      }, delay);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', dismissLoader);
+    } else {
+      dismissLoader();
+    }
+  })();
+
+  /* ══════════════════════════════════════════════════════
+     REVEAL ON SCROLL
+  ══════════════════════════════════════════════════════ */
+  function triggerReveal() {
+    var revealEls = document.querySelectorAll('.reveal');
+    var observer  = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     HERO SLIDESHOW — Crossfade automático 5s
+  ══════════════════════════════════════════════════════ */
+  function initSlideshow() {
+    var slides   = document.querySelectorAll('.hero-slide');
+    var dots     = document.querySelectorAll('.dot');
+    if (!slides.length) return;
+    var current  = 0;
+    var interval = 5000;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      dots[current] && dots[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current] && dots[current].classList.add('active');
+    }
+
+    var timer = setInterval(function () { goTo(current + 1); }, interval);
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        clearInterval(timer);
+        goTo(i);
+        timer = setInterval(function () { goTo(current + 1); }, interval);
+      });
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     HEADER SCROLL
+  ══════════════════════════════════════════════════════ */
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('header-scrolled', window.scrollY > 60);
+  });
+
+  /* ══════════════════════════════════════════════════════
+     SMOOTH SCROLL COM OFFSET
+  ══════════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (href === '#' || href === '#top') return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        closeMobileMenu();
+      });
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════
+     MENU HAMBÚRGUER / MOBILE OVERLAY
+  ══════════════════════════════════════════════════════ */
+  var hamburger     = document.getElementById('hamburger');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+
+  function openMobileMenu() {
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileOverlay.classList.add('open');
+    mobileOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileOverlay.classList.remove('open');
+    mobileOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+
+  /* ══════════════════════════════════════════════════════
+     MAGNETIC BUTTONS
+  ══════════════════════════════════════════════════════ */
+  document.querySelectorAll('.magnetic').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top  - rect.height / 2;
+      btn.style.transform = 'translate(' + x * 0.22 + 'px, ' + y * 0.22 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════
+     DROPDOWN MENU — Desktop Soluções
+  ══════════════════════════════════════════════════════ */
+  (function () {
+    var dropdown = document.getElementById('nav-solucoes-dropdown');
+    if (!dropdown) return;
+    var trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    var menu    = dropdown.querySelector('.nav-dropdown-menu');
+
+    function openDD()  { dropdown.classList.add('open');    trigger.setAttribute('aria-expanded', 'true'); }
+    function closeDD() { dropdown.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dropdown.classList.contains('open') ? closeDD() : openDD();
+    });
+    document.addEventListener('click', function (e) { if (!dropdown.contains(e.target)) closeDD(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDD(); });
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeDD); });
+  })();
+
+  /* ══════════════════════════════════════════════════════
+     CURSOR PERSONALIZADO
+  ══════════════════════════════════════════════════════ */
+  (function () {
+    var cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
+    document.addEventListener('mousemove', function (e) {
+      cursor.classList.add('visible');
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .btn, .magnetic').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { cursor.classList.add('hover'); });
+      el.addEventListener('mouseleave', function () { cursor.classList.remove('hover'); });
+    });
+    document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
+  })();
+  </script>
+</body>
+</html>
