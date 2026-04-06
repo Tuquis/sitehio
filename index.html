@@ -118,9 +118,43 @@
 
         <!-- Slideshow de fundo: 3 slides com crossfade -->
         <div class="hero-slideshow" aria-hidden="true">
-          <div class="hero-slide slide-1 active"></div>
-          <div class="hero-slide slide-2"></div>
-          <div class="hero-slide slide-3"></div>
+          <!-- Slide 1 — LCP prioritário: picture + fetchpriority + loading eager -->
+          <div class="hero-slide slide-1 active">
+            <picture>
+              <img
+                src="Design sem nome.png"
+                alt=""
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
+          <!-- Slide 2 — carregamento lazy pois não é LCP -->
+          <div class="hero-slide slide-2">
+            <picture>
+              <img
+                src="dsn.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
+          <!-- Slide 3 — carregamento lazy -->
+          <div class="hero-slide slide-3">
+            <picture>
+              <img
+                src="Golfe.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
         </div>
 
         <div class="hero-overlay" aria-hidden="true"></div>
@@ -448,7 +482,7 @@
                 </svg>
                 Falar no WhatsApp
               </a>
-              <a class="cta-link" href="mailto:contato@holeinone.com.br">contato@holeinone.com.br</a>
+              <a class="cta-link" href="/cdn-cgi/l/email-protection#02616d6c7663766d426a6d6e676b6c6d6c672c616d6f2c6070"><span class="__cf_email__" data-cfemail="72111d1c0613061d321a1d1e171b1c1d1c175c111d1f5c1000">[email&#160;protected]</span></a>
             </div>
           </div>
         </div>
@@ -659,10 +693,9 @@
       cursor.style.top  = e.clientY + 'px';
     });
     document.querySelectorAll('a, button, .btn, .magnetic').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { cursor.classList.add('hover'); });
-      el.addEventListener('mouseleave', function () { cursor.classList.remove('hover'); });
+      el.addEventListener('mouseenter', function () { cursor.classList.add('cursor-hover'); });
+      el.addEventListener('mouseleave', function () { cursor.classList.remove('cursor-hover'); });
     });
-    document.addEventListener('mouseleave', function () { cursor.classList.remove('visible'); });
   })();
   </script>
 </body>

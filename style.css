@@ -14,6 +14,10 @@
   --color-text-soft:   rgba(240, 236, 229, 0.72);
   --color-text-muted:  rgba(240, 236, 229, 0.42);
   --color-border-soft: rgba(255, 255, 255, 0.06);
+  --color-moss:        #4D7440;
+  --color-moss-light:  rgba(77, 116, 64, 0.18);
+  --color-sage:        #849175;
+  --color-sage-light:  rgba(132, 145, 117, 0.18);
   --radius-lg:   20px;
   --radius-md:   12px;
   --radius-pill: 50px;
@@ -412,7 +416,11 @@ body.is-loading { overflow: hidden; }
    ============================================================ */
 .hero {
   position: relative;
+  /* min-height garante altura mínima; aspect-ratio reserva espaço antes da imagem (evita CLS no desktop) */
+  aspect-ratio: 16 / 9;
   min-height: 100vh;
+  /* background-color fallback enquanto a imagem LCP não carrega */
+  background-color: #0b1a0e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -434,22 +442,36 @@ body.is-loading { overflow: hidden; }
   opacity: 0;
   transition: opacity 1.6s cubic-bezier(0.4,0,0.2,1);
   transform: scale(1.04);
+  overflow: hidden;
 }
 .hero-slide.active { opacity: 1; }
 
+/* Imagens dentro de <picture> ocupam todo o slide */
+.hero-slide picture {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.hero-slide-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /*
  * ── SLIDESHOW: ADICIONE OS LINKS DAS FOTOS ABAIXO ──────────
- * Substitua as URLs entre aspas pelas URLs reais das suas imagens.
- * Recomendação: imagens de 1920×1080px ou superiores.
+ * As imagens agora são carregadas via <picture> no HTML.
+ * Os background-image abaixo servem como fallback CSS extra.
  */
 
-/* ADICIONE O LINK DA FOTO AQUI — Slide 1 */
+/* FALLBACK CSS — Slide 1 */
 .slide-1 { background-image: url("Design sem nome.png"); }
 
-/* ADICIONE O LINK DA FOTO AQUI — Slide 2 */
+/* FALLBACK CSS — Slide 2 */
 .slide-2 { background-image: url("dsn.png"); }
 
-/* ADICIONE O LINK DA FOTO AQUI — Slide 3 */
+/* FALLBACK CSS — Slide 3 */
 .slide-3 { background-image: url("Golfe.png"); background-position: center 30%; }
 
 /* ── Overlay e grain ───────────────────────── */
@@ -636,11 +658,11 @@ h1 {
   transform: translateY(-3px);
 }
 .btn-secondary {
-  border: 1px solid var(--color-gold); color: var(--color-gold);
-  background: transparent;
+  border: 1px solid var(--color-moss); color: var(--color-sage);
+  background: var(--color-moss-light);
 }
 .btn-secondary:hover {
-  background: var(--color-gold); color: #0e1c11;
+  background: var(--color-moss); color: #fff;
   transform: translateY(-3px);
 }
 .btn-whatsapp {
@@ -701,9 +723,9 @@ h1 {
    ============================================================ */
 .stats-section {
   padding: 48px 0;
-  background: rgba(255,255,255,0.015);
-  border-top: 1px solid var(--color-border-soft);
-  border-bottom: 1px solid var(--color-border-soft);
+  background: var(--color-moss-light);
+  border-top: 1px solid rgba(77, 116, 64, 0.20);
+  border-bottom: 1px solid rgba(77, 116, 64, 0.20);
 }
 .stats-grid {
   display: flex; align-items: center;
@@ -808,7 +830,7 @@ h1 {
   border-right: 1px solid var(--color-border-soft);
 }
 .pillar:last-child { border-right: none; }
-.pillar-num { font-family: var(--font-display); font-size: 0.75rem; color: var(--color-gold); opacity: 0.7; }
+.pillar-num { font-family: var(--font-display); font-size: 0.75rem; color: var(--color-sage); opacity: 0.85; }
 .pillar-text { font-size: 0.82rem; color: var(--color-text-soft); letter-spacing: 0.02em; }
 
 /* ============================================================
@@ -849,7 +871,7 @@ h1 {
   flex: 1;
 }
 .card-icon {
-  width: 40px; height: 40px; color: var(--color-gold); margin-bottom: 20px;
+  width: 40px; height: 40px; color: var(--color-moss); margin-bottom: 20px;
 }
 .card-icon svg { width: 100%; height: 100%; }
 .service-card h3 {
@@ -887,7 +909,7 @@ h1 {
   transition: background var(--transition), color var(--transition), letter-spacing var(--transition);
 }
 .card-cta:hover {
-  background: rgba(198,164,108,0.10);
+  background: var(--color-moss-light);
   letter-spacing: 0.14em;
 }
 
@@ -921,7 +943,7 @@ h1 {
 .diff-card-num {
   font-family: var(--font-display);
   font-size: 0.75rem; letter-spacing: 0.16em;
-  color: var(--color-gold); opacity: 0.55;
+  color: var(--color-sage); opacity: 0.80;
   margin-bottom: 18px;
 }
 .diff-card h3 {
@@ -936,7 +958,7 @@ h1 {
 .diff-card-line {
   position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 2px;
-  background: linear-gradient(to bottom, var(--color-gold), transparent);
+  background: linear-gradient(to bottom, var(--color-moss), transparent);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -1102,7 +1124,24 @@ h1 {
   .hamburger { display: flex; }
 
   /* Hero */
-  .hero { min-height: 100svh; }
+  .hero {
+    /* Cancela o aspect-ratio do desktop — em mobile altura é sempre 100svh */
+    aspect-ratio: unset;
+    min-height: 100svh;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    align-items: center;
+    /* empurra para cima do badge que fica em bottom: -32px */
+    margin-bottom: 40px;
+  }
   h1 { font-size: clamp(2.2rem, 8.5vw, 3.2rem); }
   .hero-scroll { display: none; }
   .hero-badge { left: 16px; width: 220px; height: 64px; bottom: -32px; }
