@@ -4,8 +4,8 @@
    ============================================================ */
 
 :root {
-  --color-bg:          #111a14;
-  --color-bg-deep:     #0b1209;
+  --color-bg:          #2a4227;
+  --color-bg-deep:     #1c2e19;
   --color-gold:        #c6a46c;
   --color-gold-light:  #dfc08e;
   --color-gold-dim:    rgba(198, 164, 108, 0.15);
@@ -14,10 +14,12 @@
   --color-text-soft:   rgba(240, 236, 229, 0.72);
   --color-text-muted:  rgba(240, 236, 229, 0.42);
   --color-border-soft: rgba(255, 255, 255, 0.06);
-  --color-moss:        #4D7440;
-  --color-moss-light:  rgba(77, 116, 64, 0.18);
-  --color-sage:        #849175;
-  --color-sage-light:  rgba(132, 145, 117, 0.18);
+  --color-moss:        #45603f;
+  --color-moss-light:  rgba(69, 96, 63, 0.20);
+  --color-sage:        #8aaa82;
+  --color-sage-light:  rgba(138, 170, 130, 0.18);
+  --color-cream:       #fbfce4;
+  --color-cream-light: #fdfee8;
   --radius-lg:   20px;
   --radius-md:   12px;
   --radius-pill: 50px;
@@ -124,7 +126,7 @@ body.is-loading { overflow: hidden; }
 .loader-bg {
   position: absolute;
   inset: 0;
-  background: #060e09;
+  background: #1c2e19;
   transition: opacity 0.3s ease 0.75s;
 }
 .loader-content {
@@ -181,7 +183,7 @@ body.is-loading { overflow: hidden; }
 }
 .loader-curtain {
   position: absolute; left: 0; right: 0; height: 50%;
-  background: #060e09; z-index: 3;
+  background: #1c2e19; z-index: 3;
   transform: translateY(0);
   transition: transform 0.75s cubic-bezier(0.76,0,0.24,1) 0.15s;
 }
@@ -223,7 +225,7 @@ body.is-loading { overflow: hidden; }
   align-items: center;
   padding: 10px 18px 10px 10px;
   border-radius: var(--radius-pill);
-  background: rgba(8,18,11,0.58);
+  background: rgba(45,74,42,0.65);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
   border: 1px solid var(--color-border-soft);
@@ -231,7 +233,7 @@ body.is-loading { overflow: hidden; }
   transition: background var(--transition), box-shadow var(--transition);
 }
 .header-scrolled .header-inner {
-  background: rgba(6,14,9,0.88);
+  background: rgba(40,66,36,0.94);
   box-shadow: 0 12px 50px rgba(0,0,0,0.55);
 }
 .brand { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
@@ -313,7 +315,7 @@ body.is-loading { overflow: hidden; }
   position: absolute; top: calc(100% + 10px); left: 50%;
   transform: translateX(-50%);
   min-width: 170px; list-style: none;
-  background: rgba(8,18,11,0.94);
+  background: rgba(45,72,40,0.97);
   border: 1px solid var(--color-gold-border);
   border-radius: var(--radius-md);
   backdrop-filter: blur(20px);
@@ -342,7 +344,7 @@ body.is-loading { overflow: hidden; }
   position: fixed;
   inset: 0;
   z-index: 150;
-  background: rgba(6,12,8,0.97);
+  background: rgba(35,56,30,0.98);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   display: flex;
@@ -420,7 +422,7 @@ body.is-loading { overflow: hidden; }
   aspect-ratio: 16 / 9;
   min-height: 100vh;
   /* background-color fallback enquanto a imagem LCP não carrega */
-  background-color: #0b1a0e;
+  background-color: #2a4227;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -469,7 +471,7 @@ body.is-loading { overflow: hidden; }
 .slide-1 { background-image: url("Design sem nome.png"); }
 
 /* FALLBACK CSS — Slide 2 */
-.slide-2 { background-image: url("dsn.png"); }
+.slide-2 { background-image: url("[HIO] Site.png"); }
 
 /* FALLBACK CSS — Slide 3 */
 .slide-3 { background-image: url("Golfe.png"); background-position: center 30%; }
@@ -478,9 +480,9 @@ body.is-loading { overflow: hidden; }
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom,
-    rgba(0,0,0,0.18) 0%,
-    rgba(5,12,8,0.60) 55%,
-    rgba(5,12,8,0.90) 100%
+    rgba(0,0,0,0.06) 0%,
+    rgba(20,40,16,0.32) 55%,
+    rgba(20,40,16,0.70) 100%
   );
   z-index: 1;
 }
@@ -518,6 +520,7 @@ body.is-loading { overflow: hidden; }
   color: var(--color-gold);
   margin-bottom: 22px;
   opacity: 0.85;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.70), 0 0 20px rgba(0,0,0,0.40);
 }
 
 h1 {
@@ -528,6 +531,9 @@ h1 {
   letter-spacing: -0.01em;
   color: var(--color-text);
   margin-bottom: 0;
+  text-shadow:
+    0 1px 5px rgba(0,0,0,0.38),
+    0 2px 16px rgba(0,0,0,0.18);
 }
 
 .hero-text {
@@ -536,6 +542,7 @@ h1 {
   font-size: 1.02rem; line-height: 1.78;
   color: var(--color-text-soft);
   font-weight: 300;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.60), 0 2px 14px rgba(0,0,0,0.35);
 }
 
 .hero-actions {
@@ -594,7 +601,7 @@ h1 {
   display: flex; align-items: center; gap: 14px;
   padding: 0 22px;
   border-radius: var(--radius-md);
-  background: rgba(10,22,14,0.82);
+  background: rgba(45,74,42,0.90);
   border: 1px solid var(--color-gold-border);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -688,10 +695,10 @@ h1 {
 }
 .section-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(14,35,20,0.86) 0%, rgba(10,25,15,0.96) 100%);
+  background: linear-gradient(135deg, rgba(45,74,40,0.60) 0%, rgba(32,58,26,0.80) 100%);
 }
-.section-overlay-soft { background: linear-gradient(135deg, rgba(14,35,20,0.68) 0%, rgba(10,25,15,0.85) 100%); }
-.section-overlay-strong { background: linear-gradient(135deg, rgba(8,18,12,0.93) 0%, rgba(5,13,9,0.98) 100%); }
+.section-overlay-soft { background: linear-gradient(135deg, rgba(45,74,40,0.40) 0%, rgba(32,58,26,0.62) 100%); }
+.section-overlay-strong { background: linear-gradient(135deg, rgba(26,46,22,0.88) 0%, rgba(18,30,14,0.96) 100%); }
 .section-grain {
   position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
@@ -723,9 +730,9 @@ h1 {
    ============================================================ */
 .stats-section {
   padding: 48px 0;
-  background: var(--color-moss-light);
-  border-top: 1px solid rgba(77, 116, 64, 0.20);
-  border-bottom: 1px solid rgba(77, 116, 64, 0.20);
+  background: #45603f;
+  border-top: 1px solid rgba(251, 252, 228, 0.28);
+  border-bottom: 1px solid rgba(251, 252, 228, 0.28);
 }
 .stats-grid {
   display: flex; align-items: center;
@@ -758,11 +765,21 @@ h1 {
    ============================================================ */
 #posicionamento {
   padding-top: 120px;
-  border-top: 1px solid rgba(198,164,108,0.07);
+  border-top: 1px solid rgba(69,96,63,0.12);
+  background: #fbfce4;
 }
 .historia-overlay {
-  background: rgba(8,18,12,0.88) !important;
+  background: linear-gradient(135deg, rgba(241,246,220,0.45) 0%, rgba(245,250,225,0.30) 100%) !important;
 }
+/* Nossa História — textos escuros sobre fundo cream */
+#posicionamento .section-tag    { color: #45603f; opacity: 1; }
+#posicionamento .historia-text h2 { color: #1a3020; }
+#posicionamento .historia-text p  { color: rgba(26,48,32,0.78); }
+#posicionamento .historia-divider { background: #45603f; opacity: 0.55; }
+#posicionamento .pillar-num       { color: #45603f; opacity: 0.90; }
+#posicionamento .pillar-text      { color: rgba(26,48,32,0.75); }
+#posicionamento .historia-pillars { border-top-color: rgba(69,96,63,0.14); border-bottom-color: rgba(69,96,63,0.14); }
+#posicionamento .pillar           { border-right-color: rgba(69,96,63,0.14); }
 .historia-layout {
   display: flex; gap: 64px; align-items: center;
   position: relative; z-index: 2;
@@ -836,7 +853,7 @@ h1 {
 /* ============================================================
    SOLUÇÕES — Cards
    ============================================================ */
-.services-section { padding: 80px 0; }
+.services-section { padding: 80px 0; background: #3a5434; }
 .services-section .container { position: relative; z-index: 2; }
 
 .cards-grid {
@@ -854,17 +871,17 @@ h1 {
 .service-card::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(5,12,8,0.94) 0%, rgba(5,12,8,0.28) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(14,26,12,0.94) 0%, rgba(14,26,12,0.22) 55%, transparent 100%);
   z-index: 0; pointer-events: none;
 }
 .service-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,0.45); }
 .card-bg {
   position: absolute; inset: 0;
   background-size: cover; background-repeat: no-repeat;
-  filter: brightness(0.32);
+  filter: brightness(0.40);
   transition: transform 0.7s ease, filter 0.7s ease; z-index: 0;
 }
-.service-card:hover .card-bg { transform: scale(1.06); filter: brightness(0.42); }
+.service-card:hover .card-bg { transform: scale(1.06); filter: brightness(0.54); }
 .card-content {
   position: relative; z-index: 1;
   padding: 40px 32px 24px;
@@ -916,10 +933,10 @@ h1 {
 /* ============================================================
    DIFERENCIAIS
    ============================================================ */
-#diferenciais { border-top: 1px solid rgba(198,164,108,0.07); }
+#diferenciais { border-top: 1px solid rgba(69,96,63,0.12); background: #45603f; }
 .diferenciais-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(8,18,12,0.93) 0%, rgba(5,13,9,0.98) 100%);
+  background: linear-gradient(135deg, rgba(40,68,36,0.55) 0%, rgba(26,48,22,0.70) 100%);
 }
 .differentials-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -939,7 +956,7 @@ h1 {
 }
 .diff-card:nth-child(3n) { border-right: none; }
 .diff-card:nth-child(n+4) { border-bottom: none; }
-.diff-card:hover { background: rgba(198,164,108,0.04); }
+.diff-card:hover { background: rgba(69,96,63,0.12); }
 .diff-card-num {
   font-family: var(--font-display);
   font-size: 0.75rem; letter-spacing: 0.16em;
@@ -963,6 +980,37 @@ h1 {
   transition: opacity var(--transition);
 }
 .diff-card:hover .diff-card-line { opacity: 0.6; }
+
+/* ============================================================
+   DIFERENCIAIS — Fundo Cream (contraste com seções verdes)
+   Mesmo padrão já usado na seção de Depoimentos
+   ============================================================ */
+#diferenciais {
+  background: #fbfce4;
+  border-top: 1px solid rgba(69,96,63,0.14);
+}
+#diferenciais .diferenciais-overlay {
+  background: linear-gradient(135deg, rgba(241,246,220,0.55) 0%, rgba(235,242,210,0.40) 100%);
+}
+#diferenciais .section-tag       { color: #45603f; opacity: 1; }
+#diferenciais .section-intro h2  { color: #1a3020; }
+#diferenciais .section-intro-text { color: rgba(26,48,32,0.72); }
+#diferenciais .differentials-grid {
+  border: 1px solid rgba(69,96,63,0.16);
+}
+#diferenciais .diff-card {
+  background: rgba(255,255,255,0.60);
+  border-right: 1px solid rgba(69,96,63,0.10);
+  border-bottom: 1px solid rgba(69,96,63,0.10);
+}
+#diferenciais .diff-card:hover   { background: rgba(255,255,255,0.92); }
+#diferenciais .diff-card-num     { color: #45603f; opacity: 0.90; }
+#diferenciais .diff-card h3      { color: #1a3020; }
+#diferenciais .diff-card p       { color: rgba(26,48,32,0.78); }
+#diferenciais .diff-card-line    {
+  background: linear-gradient(to bottom, #45603f, transparent);
+}
+
 
 /* ============================================================
    DEPOIMENTOS
@@ -1013,6 +1061,55 @@ h1 {
 }
 
 /* ============================================================
+   DEPOIMENTOS — Fundo Cream (contraste com seções escuras)
+   ============================================================ */
+/* ============================================================
+   DEPOIMENTOS — Fundo Verde (contraste com seções cream)
+   ============================================================ */
+section:has(.testimonial-grid) {
+  background: #45603f;
+}
+section:has(.testimonial-grid) .section-tag {
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+section:has(.testimonial-grid) .section-intro h2 {
+  color: var(--color-text);
+}
+section:has(.testimonial-grid) .section-intro-text {
+  color: var(--color-text-soft);
+}
+section:has(.testimonial-grid) .testimonial-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(251, 252, 228, 0.14);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+}
+section:has(.testimonial-grid) .testimonial-card:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(251, 252, 228, 0.28);
+}
+section:has(.testimonial-grid) .testimonial-quote {
+  color: var(--color-gold);
+  opacity: 0.28;
+}
+section:has(.testimonial-grid) .testimonial-text {
+  color: var(--color-text-soft);
+}
+section:has(.testimonial-grid) .testimonial-footer {
+  border-top-color: rgba(251, 252, 228, 0.14);
+}
+section:has(.testimonial-grid) .testimonial-stars {
+  color: var(--color-gold);
+}
+section:has(.testimonial-grid) .testimonial-author strong {
+  color: var(--color-text);
+}
+section:has(.testimonial-grid) .testimonial-author span {
+  color: var(--color-gold);
+  opacity: 0.75;
+}
+
+/* ============================================================
    CTA
    ============================================================ */
 .cta-panel {
@@ -1047,7 +1144,7 @@ h1 {
    ============================================================ */
 .footer {
   padding: 48px 0;
-  background: #060e08;
+  background: #1c2e19;
   border-top: 1px solid var(--color-border-soft);
 }
 .footer-container {
