@@ -372,31 +372,18 @@
             <p class="section-intro-text">Consórcio, imóvel e proteção — três pilares conectados, uma única jornada com a Hole in One.</p>
           </div>
 
-          <!-- Diagrama Orbital Criativo -->
-          <div class="eco-diagram reveal">
+          <!-- Diagrama Principal -->
+          <div class="eco-wrap reveal">
 
-            <!-- Centro: HIO -->
-            <div class="eco-center">
-              <div class="eco-center-ring eco-ring-3"></div>
-              <div class="eco-center-ring eco-ring-2"></div>
-              <div class="eco-center-ring eco-ring-1"></div>
-              <div class="eco-center-core">
-                <span class="eco-center-label">HIO</span>
-                <span class="eco-center-sub">Ecossistema</span>
-              </div>
-            </div>
+            <!-- Linha superior: Consórcio — Bola — Imóvel -->
+            <div class="eco-row-top">
 
-            <!-- Braço 1: Consórcio (topo-esquerda) -->
-            <div class="eco-arm eco-arm-1">
-              <div class="eco-connector-line"></div>
-              <div class="eco-node eco-node-consorcio">
-                <div class="eco-node-icon">
+              <article class="eco-card">
+                <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19h16"/><path d="M6 19V9l6-4 6 4v10"/><path d="M9 19v-5h6v5"/>
                   </svg>
                 </div>
-              </div>
-              <article class="eco-card eco-card-consorcio">
                 <h3>Consórcio</h3>
                 <p>Planejamento sem juros. Aquisição inteligente com estratégia de lance.</p>
                 <ul>
@@ -406,19 +393,30 @@
                 </ul>
                 <a href="#contato" class="eco-card-link">Simular carta →</a>
               </article>
-            </div>
 
-            <!-- Braço 2: Imóvel (topo-direita) -->
-            <div class="eco-arm eco-arm-2">
-              <div class="eco-connector-line"></div>
-              <div class="eco-node eco-node-imovel">
-                <div class="eco-node-icon">
+              <!-- Linha horizontal + bola central -->
+              <div class="eco-hub">
+                <div class="eco-h-line eco-h-line-left"></div>
+                <div class="eco-center">
+                  <div class="eco-center-ring eco-ring-3"></div>
+                  <div class="eco-center-ring eco-ring-2"></div>
+                  <div class="eco-center-ring eco-ring-1"></div>
+                  <div class="eco-center-core">
+                    <span class="eco-center-label">HIO</span>
+                    <span class="eco-center-sub">Ecossistema</span>
+                  </div>
+                </div>
+                <div class="eco-h-line eco-h-line-right"></div>
+                <!-- Linha vertical descendo para Seguros -->
+                <div class="eco-v-line"></div>
+              </div>
+
+              <article class="eco-card">
+                <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 21h18"/><path d="M6 18V9"/><path d="M12 18V3"/><path d="M18 18v-6"/>
                   </svg>
                 </div>
-              </div>
-              <article class="eco-card eco-card-imovel">
                 <h3>Imóvel</h3>
                 <p>Estratégias imobiliárias com curadoria e análise de mercado personalizada.</p>
                 <ul>
@@ -428,19 +426,17 @@
                 </ul>
                 <a href="#contato" class="eco-card-link">Ver estratégias →</a>
               </article>
-            </div>
 
-            <!-- Braço 3: Seguros (baixo) -->
-            <div class="eco-arm eco-arm-3">
-              <div class="eco-connector-line"></div>
-              <div class="eco-node eco-node-seguros">
-                <div class="eco-node-icon">
+            </div><!-- /eco-row-top -->
+
+            <!-- Card inferior: Seguros (centralizado) -->
+            <div class="eco-row-bottom">
+              <article class="eco-card eco-card-bottom">
+                <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/><path d="M9.5 12.5l1.8 1.8 3.7-4.1"/>
                   </svg>
                 </div>
-              </div>
-              <article class="eco-card eco-card-seguros">
                 <h3>Seguros</h3>
                 <p>Proteção patrimonial completa. Blindagem que preserva o que você construiu.</p>
                 <ul>
@@ -450,13 +446,11 @@
                 </ul>
                 <a href="#contato" class="eco-card-link">Proteger patrimônio →</a>
               </article>
-            </div>
+            </div><!-- /eco-row-bottom -->
 
-          </div><!-- /eco-diagram -->
+          </div><!-- /eco-wrap -->
 
-          <!-- Tagline de fechamento -->
           <p class="eco-tagline reveal">Cada produto potencializa o outro. Juntos, formam um patrimônio sólido e estratégico.</p>
-
         </div>
       </section>
 

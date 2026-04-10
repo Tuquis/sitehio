@@ -1158,395 +1158,288 @@ section:has(.testimonial-grid) .testimonial-author span {
 .footer-copy { font-size: 0.70rem; color: var(--color-text-muted); }
 
 /* ============================================================
-   ECOSSISTEMA — Jornada do Cliente
+   ECOSSISTEMA — cores da seção
    ============================================================ */
 .ecosystem-section {
   background: #fefbe4;
   border-top: 1px solid rgba(69,96,63,0.15);
 }
-.ecosystem-section .section-tag      { color: #45603f; opacity: 1; }
-.ecosystem-section .section-intro h2 { color: #1a3020; }
+.ecosystem-section .section-tag        { color: #45603f; opacity: 1; }
+.ecosystem-section .section-intro h2   { color: #1a3020; }
 .ecosystem-section .section-intro-text { color: rgba(26,48,32,0.72); }
 
-.ecosystem-journey {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  position: relative;
-}
-
-/* Linha conectora horizontal entre os nós */
-.ecosystem-connector {
-  position: absolute;
-  top: 34px; /* metade da altura do círculo (68/2) */
-  left: calc(50% / 3 + 34px);
-  right: calc(50% / 3 + 34px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(198,164,108,0.15), rgba(198,164,108,0.60), rgba(198,164,108,0.15));
-  z-index: 0;
-}
-
-.ecosystem-node-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  position: relative;
-  z-index: 1;
-}
-
-.ecosystem-node {
-  display: flex;
-  justify-content: center;
-}
-
-.ecosystem-node-circle {
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  border: 2px solid #45603f;
-  background: #45603f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.ecosystem-node-circle::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1px solid rgba(69,96,63,0.25);
-}
-.ecosystem-node-circle span {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fefbe4;
-  letter-spacing: 0.04em;
-}
-
-.ecosystem-card {
-  background: #fff;
-  border: 1px solid rgba(69,96,63,0.20);
-  border-radius: 12px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
-  flex: 1;
-  box-shadow: 0 2px 16px rgba(69,96,63,0.08);
-}
-.ecosystem-card:hover {
-  transform: translateY(-5px);
-  background: #fff;
-  box-shadow: 0 16px 48px rgba(69,96,63,0.18);
-  border-color: rgba(69,96,63,0.40);
-}
-
-.ecosystem-card-icon {
-  width: 36px;
-  height: 36px;
-  color: #45603f;
-}
-.ecosystem-card-icon svg { width: 100%; height: 100%; }
-
-.ecosystem-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #1a3020;
-  line-height: 1.2;
-  margin: 0;
-}
-.ecosystem-card p {
-  font-size: 0.90rem;
-  line-height: 1.78;
-  color: rgba(26,48,32,0.72);
-  font-weight: 300;
-  margin: 0;
-}
-
-.ecosystem-benefits {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
-}
-.ecosystem-benefits li {
-  font-size: 0.78rem;
-  color: rgba(26,48,32,0.62);
-  letter-spacing: 0.03em;
-  padding-left: 16px;
-  position: relative;
-}
-.ecosystem-benefits li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: #45603f;
-  opacity: 0.70;
-}
-
-.ecosystem-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(69,96,63,0.18);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #45603f;
-  text-decoration: none;
-  transition: color var(--transition), letter-spacing var(--transition);
-}
-.ecosystem-cta:hover {
-  color: #2a4227;
-  letter-spacing: 0.12em;
-}
-
-/* Linha conectora — adaptada ao fundo claro */
-.ecosystem-connector {
-  position: absolute;
-  top: 34px;
-  left: calc(50% / 3 + 34px);
-  right: calc(50% / 3 + 34px);
-  height: 1px;
-  background: linear-gradient(90deg, rgba(69,96,63,0.10), rgba(69,96,63,0.50), rgba(69,96,63,0.10));
-  z-index: 0;
-}
-
 /* ============================================================
-   ECOSSISTEMA — Diagrama Orbital Criativo
+   ECOSSISTEMA — Diagrama limpo, simétrico, sem JS
    ============================================================ */
-
-/* Remove estilos antigos da jornada que não são mais usados */
 .ecosystem-journey { display: none; }
 
-.eco-diagram {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 280px 1fr;
-  grid-template-rows: 1fr auto 1fr;
-  gap: 0;
-  align-items: center;
-  min-height: 560px;
-  max-width: 1000px;
+/* ── Wrapper principal ───────────────────────────────────── */
+.eco-wrap {
+  max-width: 1060px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
-/* Centro HIO */
+/* ── Linha superior: card | hub(linhas+bola) | card ─────── */
+.eco-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0;
+}
+
+/* ── Hub central (linhas horizontais + bola + linha vertical) */
+.eco-hub {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* altura suficiente para a linha vertical sair pela base */
+  padding-bottom: 0;
+}
+
+.eco-h-line-left,
+.eco-h-line-right {
+  width: 64px;
+  height: 1px;
+  flex-shrink: 0;
+}
+.eco-h-line-left  { background: linear-gradient(to left,  rgba(69,96,63,0.60), rgba(69,96,63,0.08)); }
+.eco-h-line-right { background: linear-gradient(to right, rgba(69,96,63,0.60), rgba(69,96,63,0.08)); }
+
+/* Bola central */
 .eco-center {
-  grid-column: 2;
-  grid-row: 1 / 4;
+  flex-shrink: 0;
+  width: 148px;
+  height: 148px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 5;
 }
 
 .eco-center-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(69,96,63,0.18);
+  pointer-events: none;
 }
-.eco-ring-1 { width: 140px; height: 140px; animation: ecoRingSpin 18s linear infinite; }
-.eco-ring-2 { width: 190px; height: 190px; border-color: rgba(69,96,63,0.10); animation: ecoRingSpin 28s linear infinite reverse; }
-.eco-ring-3 { width: 246px; height: 246px; border-color: rgba(69,96,63,0.06); animation: ecoRingSpin 40s linear infinite; }
-
+.eco-ring-1 {
+  width: 148px; height: 148px;
+  border: 1.5px solid rgba(69,96,63,0.22);
+  animation: ecoRingSpin 20s linear infinite;
+}
+.eco-ring-2 {
+  width: 200px; height: 200px;
+  border: 1px solid rgba(69,96,63,0.12);
+  animation: ecoRingSpin 32s linear infinite reverse;
+}
+.eco-ring-3 {
+  width: 260px; height: 260px;
+  border: 1px solid rgba(69,96,63,0.06);
+  animation: ecoRingSpin 48s linear infinite;
+}
 @keyframes ecoRingSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
 .eco-center-core {
-  width: 110px; height: 110px;
+  width: 120px; height: 120px;
   border-radius: 50%;
-  background: #45603f;
-  border: 2px solid rgba(69,96,63,0.60);
+  background: linear-gradient(145deg, #527050, #2d4c28);
+  border: 2.5px solid rgba(69,96,63,0.55);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  box-shadow: 0 8px 40px rgba(69,96,63,0.30), 0 0 0 8px rgba(69,96,63,0.10);
-  position: relative;
-  z-index: 2;
+  gap: 5px;
+  box-shadow:
+    0 0 0 8px  rgba(69,96,63,0.10),
+    0 0 0 18px rgba(69,96,63,0.05),
+    0 12px 48px rgba(69,96,63,0.32);
+  position: relative; z-index: 2;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.eco-center-core:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 12px rgba(69,96,63,0.14),
+    0 0 0 24px rgba(69,96,63,0.07),
+    0 18px 60px rgba(69,96,63,0.45);
 }
 .eco-center-label {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fefbe4;
-  line-height: 1;
+  font-size: 1.8rem; font-weight: 700;
+  color: #fefbe4; line-height: 1;
   letter-spacing: 0.06em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.20);
 }
 .eco-center-sub {
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(254,251,228,0.65);
+  font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(254,251,228,0.88);
+  background: rgba(0,0,0,0.18);
+  padding: 2px 8px; border-radius: 20px;
+  border: 1px solid rgba(254,251,228,0.16);
+  white-space: nowrap;
 }
 
-/* Braços / nós */
-.eco-arm {
+/* Linha vertical para o card de baixo */
+.eco-v-line {
+  position: absolute;
+  bottom: calc(-1 * var(--eco-gap, 48px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: var(--eco-gap, 48px);
+  background: linear-gradient(to bottom, rgba(69,96,63,0.60), rgba(69,96,63,0.08));
+  pointer-events: none;
+}
+
+/* ── Linha inferior: só o card Seguros centrado ─────────── */
+.eco-row-bottom {
   display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Braço 1: esquerda-topo */
-.eco-arm-1 {
-  grid-column: 1;
-  grid-row: 1;
-  flex-direction: row-reverse;
-  padding-right: 140px;
-  padding-top: 20px;
-}
-
-/* Braço 2: direita-topo */
-.eco-arm-2 {
-  grid-column: 3;
-  grid-row: 1;
-  flex-direction: row;
-  padding-left: 140px;
-  padding-top: 20px;
-}
-
-/* Braço 3: baixo-centro */
-.eco-arm-3 {
-  grid-column: 1 / 4;
-  grid-row: 3;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 130px;
-}
-
-/* Linhas conectoras */
-.eco-connector-line {
-  background: linear-gradient(90deg, rgba(69,96,63,0.50), rgba(69,96,63,0.15));
-  height: 1px;
-  flex: 1;
-}
-.eco-arm-2 .eco-connector-line {
-  background: linear-gradient(90deg, rgba(69,96,63,0.15), rgba(69,96,63,0.50));
-}
-.eco-arm-3 .eco-connector-line {
-  width: 1px; height: 60px;
-  background: linear-gradient(180deg, rgba(69,96,63,0.50), rgba(69,96,63,0.15));
-  flex: none;
-}
-
-/* Nó (bolinha) */
-.eco-node {
-  flex-shrink: 0;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: #45603f;
-  border: 1.5px solid rgba(69,96,63,0.50);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 18px rgba(69,96,63,0.20);
-  transition: transform var(--transition), box-shadow var(--transition);
+  width: 100%;
+  padding-top: 48px; /* mesma altura que --eco-gap */
 }
-.eco-node:hover { transform: scale(1.12); box-shadow: 0 8px 28px rgba(69,96,63,0.35); }
-.eco-node-icon { width: 22px; height: 22px; color: #fefbe4; }
-.eco-node-icon svg { width: 100%; height: 100%; }
 
-/* Cards dos braços */
+/* ── Cards ───────────────────────────────────────────────── */
 .eco-card {
   background: #fff;
   border: 1px solid rgba(69,96,63,0.18);
-  border-radius: 14px;
-  padding: 24px 22px;
-  width: 200px;
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 280px;
   flex-shrink: 0;
-  box-shadow: 0 4px 20px rgba(69,96,63,0.10);
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 24px rgba(69,96,63,0.10);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 .eco-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 40px rgba(69,96,63,0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(69,96,63,0.20);
+  border-color: rgba(69,96,63,0.35);
 }
+
+.eco-card-icon {
+  width: 36px; height: 36px;
+  color: #45603f;
+  margin-bottom: 16px;
+}
+.eco-card-icon svg { width: 100%; height: 100%; }
+
 .eco-card h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem; font-weight: 600;
-  color: #1a3020; margin-bottom: 8px;
+  font-size: 1.35rem; font-weight: 600;
+  color: #1a3020; margin-bottom: 10px; line-height: 1.2;
 }
 .eco-card p {
-  font-size: 0.80rem; line-height: 1.65;
+  font-size: 0.86rem; line-height: 1.74;
   color: rgba(26,48,32,0.68); font-weight: 300;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .eco-card ul {
-  list-style: none; padding: 0; margin: 0 0 14px;
-  display: flex; flex-direction: column; gap: 5px;
+  list-style: none; padding: 0; margin: 0 0 18px;
+  display: flex; flex-direction: column; gap: 7px;
 }
 .eco-card ul li {
-  font-size: 0.72rem; color: rgba(26,48,32,0.60);
-  padding-left: 14px; position: relative;
-  letter-spacing: 0.02em;
+  font-size: 0.77rem; color: rgba(26,48,32,0.62);
+  padding-left: 16px; position: relative; letter-spacing: .02em;
 }
 .eco-card ul li::before {
-  content: '·';
-  position: absolute; left: 4px;
-  color: #45603f; font-size: 1.1rem;
-  line-height: 1; top: -1px;
+  content: '—';
+  position: absolute; left: 0;
+  color: #45603f; opacity: 0.65;
+  font-size: 0.70rem; line-height: 1.6;
 }
 .eco-card-link {
-  display: inline-block;
-  font-size: 0.72rem; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.74rem; font-weight: 500;
+  letter-spacing: .09em; text-transform: uppercase;
   color: #45603f; text-decoration: none;
-  border-bottom: 1px solid rgba(69,96,63,0.30);
-  transition: color var(--transition), border-color var(--transition);
+  border-bottom: 1px solid rgba(69,96,63,0.28);
+  padding-bottom: 2px;
+  transition: color .3s ease, border-color .3s ease, gap .3s ease;
 }
-.eco-card-link:hover { color: #2a4227; border-color: #2a4227; }
+.eco-card-link:hover { color: #2a4227; border-color: #2a4227; gap: 9px; }
 
-/* Braço 1: card à esquerda do nó */
-.eco-arm-1 .eco-card { margin-right: 16px; }
-/* Braço 2: card à direita do nó */
-.eco-arm-2 .eco-card { margin-left: 16px; }
-/* Braço 3: card abaixo do nó */
-.eco-arm-3 .eco-card { margin-top: 16px; width: 240px; }
+/* Card inferior mais largo */
+.eco-card-bottom { width: 320px; }
 
-/* Tagline de fechamento */
+/* ── Tagline ─────────────────────────────────────────────── */
 .eco-tagline {
   text-align: center;
-  margin-top: 56px;
+  margin-top: 60px;
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: rgba(26,48,32,0.55);
-  letter-spacing: 0.01em;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(26,48,32,0.50);
+  letter-spacing: .01em;
 }
 
-/* Mobile: eco-diagram em coluna */
+/* ── TABLET (≤ 1024px) ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .eco-diagram {
-    display: flex;
+  .eco-row-top {
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    min-height: unset;
+    gap: 0;
   }
-  .eco-center { position: relative; order: 0; }
+  .eco-hub {
+    flex-direction: column;
+    padding: 0;
+  }
+  .eco-h-line-left, .eco-h-line-right { display: none; }
+  .eco-v-line { display: none; }
+
+  /* Linha vertical entre bola e card inferior no mobile */
+  .eco-hub::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(69,96,63,0.55), rgba(69,96,63,0.08));
+    margin: 0 auto;
+  }
+
+  /* Linha vertical entre card-top e bola */
+  .eco-hub::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(69,96,63,0.08), rgba(69,96,63,0.55));
+    margin: 0 auto;
+  }
+
+  .eco-card, .eco-card-bottom {
+    width: 100%;
+    max-width: 420px;
+  }
+  .eco-center { margin: 0; }
+  .eco-row-bottom { padding-top: 0; }
+  /* linha vertical antes do card de baixo */
+  .eco-row-bottom::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(69,96,63,0.55), rgba(69,96,63,0.08));
+    margin: 0 auto 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .eco-row-bottom { position: relative; padding-top: 40px; }
+}
+
+/* ── MOBILE (≤ 768px) ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .eco-card, .eco-card-bottom { max-width: 100%; }
   .eco-center-ring { display: none; }
-  .eco-arm { flex-direction: column !important; padding: 0 !important; align-items: center; }
-  .eco-connector-line { width: 1px !important; height: 32px !important;
-    background: linear-gradient(180deg, rgba(69,96,63,0.40), rgba(69,96,63,0.10)) !important;
-  }
-  .eco-card { width: 100%; max-width: 320px; margin: 0 !important; }
-  .eco-arm-3 { padding-top: 0 !important; }
+  .eco-center-core { width: 110px; height: 110px; }
+  .eco-center-label { font-size: 1.6rem; }
 }
 
 /* ============================================================
