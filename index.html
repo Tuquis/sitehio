@@ -124,7 +124,7 @@
           <div class="hero-slide slide-1 active">
             <picture>
               <img
-                src="13.png"
+                src="bannerHIO.png"
                 alt=""
                 fetchpriority="high"
                 loading="eager"
@@ -149,7 +149,51 @@
           <div class="hero-slide slide-3">
             <picture>
               <img
-                src="17.png"
+                src="banner2novo.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <!-- ══ SLIDESHOW MOBILE (1080×1920) ══════════════════════════════════
+             Substitui as imagens desktop em telas ≤ 768px.
+             Coloque abaixo os 3 src das fotos mobile no formato retrato.
+        ══════════════════════════════════════════════════════════════════════ -->
+        <div class="hero-slideshow hero-slideshow-mobile" aria-hidden="true">
+          <!-- Slide mobile 1 — COLOQUE AQUI o src da 1ª foto mobile (1080×1920) -->
+          <div class="hero-slide slide-m1 active">
+            <picture>
+              <img
+                src="imagem-mobile.png"
+                alt=""
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
+          <!-- Slide mobile 2 — COLOQUE AQUI o src da 2ª foto mobile (1080×1920) -->
+          <div class="hero-slide slide-m2">
+            <picture>
+              <img
+                src="banner2novo-mobile.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="hero-slide-img"
+              />
+            </picture>
+          </div>
+          <!-- Slide mobile 3 — COLOQUE AQUI o src da 3ª foto mobile (1080×1920) -->
+          <div class="hero-slide slide-m3">
+            <picture>
+              <img
+                src="[HIO] Site (1080 x 1920 px)(1).png"
                 alt=""
                 loading="lazy"
                 decoding="async"
@@ -378,7 +422,7 @@
             <!-- Linha superior: Consórcio — Bola — Imóvel -->
             <div class="eco-row-top">
 
-              <article class="eco-card">
+              <article class="eco-card eco-card-consorcio">
                 <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19h16"/><path d="M6 19V9l6-4 6 4v10"/><path d="M9 19v-5h6v5"/>
@@ -411,7 +455,7 @@
                 <div class="eco-v-line"></div>
               </div>
 
-              <article class="eco-card">
+              <article class="eco-card eco-card-imobiliario">
                 <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 21h18"/><path d="M6 18V9"/><path d="M12 18V3"/><path d="M18 18v-6"/>
@@ -431,7 +475,7 @@
 
             <!-- Card inferior: Seguros (centralizado) -->
             <div class="eco-row-bottom">
-              <article class="eco-card eco-card-bottom">
+              <article class="eco-card eco-card-bottom eco-card-seguro">
                 <div class="eco-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/><path d="M9.5 12.5l1.8 1.8 3.7-4.1"/>
@@ -702,19 +746,41 @@
      HERO SLIDESHOW — Crossfade automático 5s
   ══════════════════════════════════════════════════════ */
   function initSlideshow() {
-    var slides   = document.querySelectorAll('.hero-slide');
-    var dots     = document.querySelectorAll('.dot');
-    if (!slides.length) return;
+    var dots = document.querySelectorAll('.dot');
+
+    /* Detecta se mobile (≤768px) para usar o conjunto correto de slides */
+    function isMobile() { return window.innerWidth <= 768; }
+
+    /* Retorna os slides do slideshow visível no momento */
+    function getSlides() {
+      if (isMobile()) {
+        var mSlides = document.querySelectorAll('.hero-slideshow-mobile .hero-slide');
+        if (mSlides.length) return mSlides;
+      }
+      return document.querySelectorAll('.hero-slideshow:not(.hero-slideshow-mobile) .hero-slide');
+    }
+
     var current  = 0;
-    var interval = 5000;
+    var interval = 4000; /* fix 2: reduzido para mobile não parecer travado */
 
     function goTo(idx) {
-      slides[current].classList.remove('active');
-      dots[current] && dots[current].classList.remove('active');
+      var slides = getSlides();
+      if (!slides.length) return;
+      slides[current] && slides[current].classList.remove('active');
+      dots[current]   && dots[current].classList.remove('active');
       current = (idx + slides.length) % slides.length;
-      slides[current].classList.add('active');
-      dots[current] && dots[current].classList.add('active');
+      slides[current] && slides[current].classList.add('active');
+      dots[current]   && dots[current].classList.add('active');
     }
+
+    /* Garante que apenas 1 slide está ativo em cada conjunto ao iniciar */
+    (function resetActive() {
+      var desktop = document.querySelectorAll('.hero-slideshow:not(.hero-slideshow-mobile) .hero-slide');
+      var mobile  = document.querySelectorAll('.hero-slideshow-mobile .hero-slide');
+      desktop.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
+      mobile.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
+    })();
+    current = 0;
 
     var timer = setInterval(function () { goTo(current + 1); }, interval);
 
@@ -820,21 +886,100 @@
   })();
 
   /* ══════════════════════════════════════════════════════
-     CURSOR PERSONALIZADO
+     FORMULÁRIO DE CONTATO — Envio para contato@hiopatrimonio.com.br
+     Usa formspree.io como relay (gratuito, sem backend próprio).
+     Para ativar: acesse https://formspree.io, crie uma conta gratuita,
+     adicione o endpoint do seu formulário e substitua YOUR_FORM_ID abaixo.
+     Enquanto não configurado, abre cliente de email como fallback.
   ══════════════════════════════════════════════════════ */
   (function () {
-    var cursor = document.getElementById('custom-cursor');
-    if (!cursor) return;
-    document.addEventListener('mousemove', function (e) {
-      cursor.classList.add('visible');
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    /* ── Endpoint Formspree (substitua YOUR_FORM_ID pelo seu ID real) ── */
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+    var DEST_EMAIL = 'contato@hiopatrimonio.com.br';
+
+    function setStatus(msg, ok) {
+      var btn = form.querySelector('.cta-form-submit');
+      var existing = form.querySelector('.form-status-msg');
+      if (existing) existing.remove();
+      var p = document.createElement('p');
+      p.className = 'form-status-msg';
+      p.style.cssText = 'font-size:.78rem;text-align:center;margin-top:6px;padding:10px 14px;border-radius:8px;' +
+        (ok ? 'background:rgba(37,211,102,.12);color:#5ddb86;border:1px solid rgba(37,211,102,.28);'
+             : 'background:rgba(255,100,100,.10);color:#ff9090;border:1px solid rgba(255,100,100,.25);');
+      p.textContent = msg;
+      btn.insertAdjacentElement('afterend', p);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var nome     = (form.querySelector('#cf-nome')     || {}).value || '';
+      var email    = (form.querySelector('#cf-email')    || {}).value || '';
+      var assunto  = (form.querySelector('#cf-assunto')  || {}).value || '';
+      var mensagem = (form.querySelector('#cf-mensagem') || {}).value || '';
+      var btn      = form.querySelector('.cta-form-submit');
+
+      /* Validação básica */
+      if (!nome.trim() || !email.trim() || !mensagem.trim()) {
+        setStatus('Por favor, preencha todos os campos obrigatórios.', false);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      /* Tenta Formspree primeiro */
+      if (FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') === -1) {
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ nome: nome, email: email, assunto: assunto, mensagem: mensagem, _replyto: email })
+        })
+        .then(function (r) { return r.json().then(function(d){ return {ok: r.ok, data: d}; }); })
+        .then(function (res) {
+          btn.disabled = false;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg> Enviar mensagem';
+          if (res.ok) {
+            setStatus('✓ Mensagem enviada com sucesso! Retornaremos em até 1 dia útil.', true);
+            form.reset();
+          } else {
+            setStatus('Não foi possível enviar. Tente pelo WhatsApp ou email.', false);
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg> Enviar mensagem';
+          fallbackMailto(nome, email, assunto, mensagem);
+        });
+
+      } else {
+        /* Fallback: abre cliente de email do usuário */
+        btn.disabled = false;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg> Enviar mensagem';
+        fallbackMailto(nome, email, assunto, mensagem);
+        setStatus('✓ Seu cliente de email foi aberto com a mensagem pronta para envio.', true);
+      }
     });
-    document.querySelectorAll('a, button, .btn, .magnetic').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { cursor.classList.add('cursor-hover'); });
-      el.addEventListener('mouseleave', function () { cursor.classList.remove('cursor-hover'); });
-    });
+
+    function fallbackMailto(nome, email, assunto, mensagem) {
+      var subject = encodeURIComponent('[HIO Site] ' + (assunto || 'Contato') + ' — ' + nome);
+      var body    = encodeURIComponent(
+        'Nome: ' + nome + '\n' +
+        'E-mail: ' + email + '\n' +
+        'Assunto: ' + assunto + '\n\n' +
+        mensagem
+      );
+      window.location.href = 'mailto:' + DEST_EMAIL + '?subject=' + subject + '&body=' + body;
+    }
   })();
+
+  /* ══════════════════════════════════════════════════════
+     CURSOR PERSONALIZADO
+  ══════════════════════════════════════════════════════ */
+  
   </script>
 </body>
 </html>
