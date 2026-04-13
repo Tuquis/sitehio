@@ -1656,6 +1656,15 @@ section:has(.testimonial-grid) .testimonial-author span {
   }
   h1 { font-size: clamp(2.2rem, 8.5vw, 3.2rem); }
   .hero-scroll { display: none; }
+  .hero-badge {
+    padding: 8px 12px; /* Reduz o padding lateral */
+    width: auto;       /* Garante que a largura se ajusta ao conteúdo */
+    max-width: 90vw;   /* Limita a largura máxima para não sair do ecrã */
+  }
+  
+  .hero-badge-value {
+    font-size: 0.9rem;
+  }
   .hero-badge { left: 16px; width: 220px; height: 64px; bottom: -32px; }
   .slideshow-dots { bottom: 20px; }
 
