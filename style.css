@@ -1665,8 +1665,17 @@ section:has(.testimonial-grid) .testimonial-author span {
   .hero-badge-value {
     font-size: 0.9rem;
   }
-  .hero-badge { left: 16px; width: 220px; height: 64px; bottom: -32px; }
+  .hero-badge { display: none; }
   .slideshow-dots { bottom: 20px; }
+
+  /* Overlay mais leve no mobile — imagens falam por si */
+  .hero-overlay {
+    background: linear-gradient(to bottom,
+      rgba(0,0,0,0.02) 0%,
+      rgba(20,40,16,0.18) 55%,
+      rgba(20,40,16,0.55) 100%
+    );
+  }
 
   /* Sections */
   .section { padding: 64px 0; }
@@ -1838,4 +1847,181 @@ body.is-loading .page-fade-in {
   opacity: 0 !important;
   transform: translateY(28px) !important;
   transition: none !important;
+}
+/* ============================================================
+   HERO — Título / Eyebrow condicional Desktop × Mobile
+   ============================================================ */
+
+/* Desktop: mostra eyebrow desktop, oculta mobile */
+.hero-eyebrow-mobile {
+  display: none;
+}
+.hero-eyebrow-desktop {
+  display: inline-block;
+}
+
+/* Desktop: título visível normalmente */
+.hero-title-desktop {
+  display: block;
+}
+
+/* ============================================================
+   HOLE IN ONE — Marca central mobile (oculta no desktop)
+   ============================================================ */
+.hero-mobile-brand {
+  display: none;
+}
+
+/* ============================================================
+   BOTÕES HERO — Alternância sincronizada com slideshow (7s)
+   Cada botão ocupa o mesmo slot — apenas 1 visível por vez.
+   ============================================================ */
+@keyframes btnToggleOn {
+  0%        { opacity: 0; transform: translateX(-50%) translateY(5px) scale(0.97); }
+  10%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  40%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  50%, 100% { opacity: 0; transform: translateX(-50%) translateY(-5px) scale(0.97); }
+}
+@keyframes btnToggleOff {
+  0%, 50%   { opacity: 0; transform: translateX(-50%) translateY(5px) scale(0.97); }
+  60%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  90%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  100%      { opacity: 0; transform: translateX(-50%) translateY(-5px) scale(0.97); }
+}
+
+@media (max-width: 768px) {
+  /* ── Oculta TODOS os textos da hero no mobile ─────────── */
+  .hero-eyebrow-desktop,
+  .hero-eyebrow-mobile,
+  .hero-title-desktop,
+  .hero-text,
+  .hero-scroll {
+    display: none !important;
+  }
+
+  /* ── hero-content: ancora no fundo, centralizado ─ */
+  .hero-content {
+    position: absolute;
+    bottom: 56px;
+    left: 0; right: 0;
+    padding: 0 28px;
+    margin-bottom: 0;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── Container dos botões: slot fixo centralizado ─ */
+  .hero-actions {
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Cada botão: posicionado no slot, centralizado */
+  .hero-actions .btn {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    width: auto;
+    min-width: 180px;
+    max-width: 80vw;
+    padding: 12px 28px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    justify-content: center;
+    opacity: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  }
+
+  /* Sincronizado com o slideshow: 7s por ciclo completo */
+  .hero-actions .btn-primary {
+    animation: btnToggleMobileOn 7s ease-in-out infinite;
+  }
+  .hero-actions .btn-ghost {
+    animation: btnToggleMobileOff 7s ease-in-out infinite;
+  }
+
+  /* ── Marca "HOLE IN ONE" centralizada na imagem ──────── */
+  .hero-mobile-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    pointer-events: none;
+    text-align: center;
+    width: 92vw;
+    white-space: nowrap;
+  }
+
+  /* Título principal — numa linha só, uppercase elegante */
+  .hero-mobile-brand-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 7vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--color-text);
+    text-shadow:
+      0 1px 4px rgba(0,0,0,0.90),
+      0 3px 20px rgba(0,0,0,0.70),
+      0 0 50px rgba(198,164,108,0.15),
+      0 0 100px rgba(0,0,0,0.50);
+    display: block;
+    -webkit-text-stroke: 0px transparent;
+  }
+
+  /* Separador dourado */
+  .hero-mobile-brand-sep {
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    margin: 11px auto 10px;
+    opacity: 0.85;
+  }
+
+  /* "Planejamento Patrimonial" abaixo */
+  .hero-mobile-brand-sub {
+    font-family: var(--font-body);
+    font-size: 0.60rem;
+    font-weight: 400;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: var(--color-gold-light);
+    opacity: 0.92;
+    display: block;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.85);
+    white-space: nowrap;
+  }
+
+  .hero-mobile-brand-eyebrow {
+    display: none;
+  }
+}
+
+/* Keyframes fora do @media para garantir resolução correta */
+@keyframes btnToggleMobileOn {
+  0%        { opacity: 0; transform: translateX(-50%) translateY(5px) scale(0.97); }
+  10%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  40%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  50%, 100% { opacity: 0; transform: translateX(-50%) translateY(-5px) scale(0.97); }
+}
+@keyframes btnToggleMobileOff {
+  0%, 50%   { opacity: 0; transform: translateX(-50%) translateY(5px) scale(0.97); }
+  60%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  90%       { opacity: 1; transform: translateX(-50%) translateY(0)   scale(1);    }
+  100%      { opacity: 0; transform: translateX(-50%) translateY(-5px) scale(0.97); }
 }
