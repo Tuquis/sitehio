@@ -4,10 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hole in One | Planejamento patrimonial com estratégia</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="logo.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="logo.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="logo.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="logo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
   <meta name="description" content="Decisões patrimoniais desenhadas com precisão, profundidade e visão de longo prazo." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="is-loading">
@@ -218,7 +225,7 @@
         <div class="hero-content page-fade-in">
           <span class="eyebrow hero-eyebrow-desktop">Planejamento acima da impulsividade</span>
           <span class="eyebrow hero-eyebrow-mobile">Planejamento patrimonial com estratégia</span>
-          <h1 id="hero-title" class="hero-title-desktop">Decisões patrimoniais desenhadas com<em> precisão</em> e profundidade.</h1>
+          <h1 id="hero-title" class="hero-title-desktop">Decisões patrimoniais desenhadas com <span class="hero-gold">precisão</span> e profundidade.</h1>
           <p class="hero-text">
             A Hole in One posiciona consórcios, proteção patrimonial e soluções imobiliárias como instrumentos estratégicos em um ecossistema de construção consciente.
           </p>
@@ -420,7 +427,7 @@
         <div class="container">
           <div class="section-intro reveal" style="text-align:center; max-width:680px; margin:0 auto 72px;">
             <span class="section-tag">Ecossistema HIO</span>
-            <h2 id="ecossistema-title">Tudo que você precisa para construir<em> patrimônio real</em></h2>
+            <h2 id="ecossistema-title">Tudo que você precisa para construir patrimônio real</h2>
             <p class="section-intro-text">Consórcio, imóvel e proteção — três pilares conectados, uma única jornada com a Hole in One.</p>
           </div>
 
@@ -711,7 +718,7 @@
 
     function dismissLoader() {
       var elapsed = Date.now() - started;
-      var delay   = Math.max(0, 1800 - elapsed);
+      var delay   = Math.max(0, 800 - elapsed);
       setTimeout(function () {
         loader.classList.add('loader-done');
         setTimeout(function () {
