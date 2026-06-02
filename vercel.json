@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "consorcios.hiopatrimonio.com.br" }],
+      "destination": "/consorcios/$1"
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "seguros.hiopatrimonio.com.br" }],
+      "destination": "/seguros/$1"
+    }
+  ]
+}
